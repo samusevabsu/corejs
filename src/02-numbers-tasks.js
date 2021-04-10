@@ -19,8 +19,9 @@
  *   5, 10 => 50
  *   5, 5  => 25
  */
-function getRectangleArea(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleArea(width, height) {
+  const rectangle = width * height;
+  return rectangle;
 }
 
 
@@ -35,8 +36,10 @@ function getRectangleArea(/* width, height */) {
  *   3.14 => 19.729201864543903
  *   0    => 0
  */
-function getCicleCircumference(/* radius */) {
-  throw new Error('Not implemented');
+function getCicleCircumference(radius) {
+  const { PI } = Math;
+  const circumference = 2 * (PI * radius);
+  return circumference;
 }
 
 /**
@@ -53,6 +56,17 @@ function getCicleCircumference(/* radius */) {
  */
 function getAverage(/* value1, value2 */) {
   throw new Error('Not implemented');
+  /* let result;
+  if (value1 < value2) {
+    const c = value2 - value1;
+    const d = c / 2;
+    result = value1 + d;
+  } else {
+    const c = value1 - value2;
+    const d = c / 2;
+    result = value2 + d;
+  }
+  return result; */
 }
 
 /**
@@ -70,8 +84,11 @@ function getAverage(/* value1, value2 */) {
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
-function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
+  const a = x1 - x2;
+  const b = y1 - y2;
+  const c = Math.sqrt(a * a + b * b);
+  return c;
 }
 
 /**
@@ -86,8 +103,9 @@ function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
  *   x + 8 = 0       => -8
  *   5*x = 0         => 0
  */
-function getLinearEquationRoot(/* a, b */) {
-  throw new Error('Not implemented');
+function getLinearEquationRoot(a, b) {
+  const x = (-b) / a;
+  return x;
 }
 
 
@@ -109,8 +127,18 @@ function getLinearEquationRoot(/* a, b */) {
  *   (0,1) (0,1)     => 0
  *   (0,1) (1,2)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const first = {
+    x: x1,
+    y: y1,
+  };
+  const second = {
+    x: x2,
+    y: y2,
+  };
+  const radians = Math.atan2(second.y, second.x) - Math.atan2(first.y, first.x);
+  const positiv = Math.abs(radians);
+  return positiv;
 }
 
 /**
@@ -125,8 +153,9 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(value) {
+  const rest = value % 10;
+  return rest;
 }
 
 
@@ -141,8 +170,9 @@ function getLastDigit(/* value */) {
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
+function parseNumberFromString(value) {
+  const num = Number(value);
+  return num;
 }
 
 /**
@@ -158,8 +188,10 @@ function parseNumberFromString(/* value */) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelipidedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelipidedDiagonal(a, b, c) {
+  const summ = a * a + b * b + c * c;
+  const sqrt = Math.sqrt(summ);
+  return sqrt;
 }
 
 /**
@@ -181,6 +213,16 @@ function getParallelipidedDiagonal(/* a, b, c */) {
  */
 function roundToPowerOfTen(/* num, pow */) {
   throw new Error('Not implemented');
+  /* const power = 10 ** pow;
+  let result;
+  let numNew = num;
+  for (numNew; numNew > 0; numNew -= 1) {
+    if (numNew % power === 0) {
+      result = numNew;
+      break;
+    }
+  }
+  return result; */
 }
 
 /**
@@ -200,8 +242,17 @@ function roundToPowerOfTen(/* num, pow */) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  let score = 0;
+  for (let i = 2; i < n; i += 1) {
+    if (n % i === 0) {
+      score += 1;
+    }
+  }
+  if (score > 0) {
+    return false;
+  }
+  return true;
 }
 
 /**
@@ -219,8 +270,12 @@ function isPrime(/* n */) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  const a = parseInt(value, 10);
+  if (typeof a === 'number' && !Number.isNaN(a)) {
+    return a;
+  }
+  return def;
 }
 
 module.exports = {
